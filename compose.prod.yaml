@@ -17,7 +17,7 @@ services:
       - "traefik.http.routers.test1.entrypoints=websecure"
       - "traefik.http.routers.test1.tls.certResolver=letsencrypt"
       - "traefik.http.routers.fusion.middlewares=my-app-strip"
-      - "traefik.http.middlewares.my-app-strip.stripprefix.prefixes=/test"
+      - "traefik.http.middlewares.my-app-strip.stripPrefix.prefixes=/test"
       - "traefik.http.services.test1.loadbalancer.server.port=3000"
 networks:
   dokploy-network:
