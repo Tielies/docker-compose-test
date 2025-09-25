@@ -13,10 +13,10 @@ services:
       - dokploy-network
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.<unique-name>.rule=Host(`your-domain.com`)"
-      - "traefik.http.routers.<unique-name>.entrypoints=websecure"
-      - "traefik.http.routers.<unique-name>.tls.certResolver=letsencrypt"
-      - "traefik.http.services.<unique-name>.loadbalancer.server.port=3000"
+      - "traefik.http.routers.test1.rule=Host(`tielman121meyer.xyz`)"
+      - "traefik.http.routers.test1.entrypoints=websecure"
+      - "traefik.http.routers.test1.tls.certResolver=letsencrypt"
+      - "traefik.http.services.test1.loadbalancer.server.port=3000"
 networks:
   dokploy-network:
     external: true
