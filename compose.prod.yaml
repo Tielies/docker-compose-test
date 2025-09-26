@@ -18,12 +18,12 @@ services:
       - "traefik.http.routers.test1.tls.certResolver=letsencrypt"
       - "traefik.http.routers.test1.middlewares=my-app-strip"
       - "traefik.http.middlewares.my-app-strip.stripPrefix.prefixes=/test"
-      - "traefik.http.services.test1.loadbalancer.server.port=3000"
-      # Redirect HTTP → HTTPS
+      - "traefik.http.services.next-app.loadbalancer.server.port=3000"
+
       - "traefik.http.routers.test1-http.rule=Host(`test1.detnet.com`) && PathPrefix(`/test`)"
       - "traefik.http.routers.test1-http.entrypoints=web"
       - "traefik.http.routers.test1-http.middlewares=my-app-strip"
-      - "traefik.http.services.test1-http.loadbalancer.server.port=3000"
+      - "traefik.http.services.next-app.loadbalancer.server.port=3000"
 
 networks:
   dokploy-network:
