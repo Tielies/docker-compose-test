@@ -22,8 +22,8 @@ services:
       # Redirect HTTP → HTTPS
       - "traefik.http.routers.test1-http.rule=Host(`test1.detnet.com`) && PathPrefix(`/test`)"
       - "traefik.http.routers.test1-http.entrypoints=web"
-      - "traefik.http.routers.test1-http.middlewares=redirect-to-https"
-      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+      - "traefik.http.routers.test1-http.middlewares=my-app-strip"
+      - "traefik.http.services.test1-http.loadbalancer.server.port=3000"
 
 networks:
   dokploy-network:
