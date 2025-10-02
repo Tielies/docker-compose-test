@@ -13,6 +13,10 @@ services:
       - dokploy-network
     labels:
       - "traefik.enable=true"
+      - "traefik.http.routers.test1.rule=Host(`test.app.detnet.com`)"
+      - "traefik.http.routers.test1.entrypoints=websecure"
+      - "traefik.http.routers.test1.tls.certResolver=letsencrypt"
+
       - "traefik.http.routers.test1-http.rule=Host(`test.app.detnet.com`)"
       - "traefik.http.routers.test1-http.entrypoints=web"
       - "traefik.http.services.next-app.loadbalancer.server.port=3000"
